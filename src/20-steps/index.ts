@@ -19,6 +19,13 @@
  *            '####'
  */
 
-function steps(n: number) {}
+function steps(n: number) {
+    // Iterate from 1 to n to build each row of steps
+    for (let i = 1; i <= n; i++) {
+        // Create string with # follower by spaces
+        const step = '#'.repeat(i) + ' '.repeat(n - i);
+        console.log(step);
+    }
+}
 
 export { steps };

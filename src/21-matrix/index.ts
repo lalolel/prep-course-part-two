@@ -35,14 +35,37 @@
  */
 
 class Matrix {
-  constructor(private matrix: string) {}
-
-  get rows() {
-    return [];
+  matrix: number[][];
+  constructor(input: string) {
+    // Split the input string into rows
+    const rows = input.trim().split("\n");
+    // Empty matrix to store the numbers
+    this.matrix = [];
+    // Parse each row and split it into numbers
+    for (const row of rows) {
+      const numbers = row.split(" ").map(Number);
+      this.matrix.push(numbers);
+    }
   }
-
+  // Getter method to return rows of the matrix
+  get rows() {
+    return this.matrix;
+  }
+  // Getter method to return columns of the matrix
   get columns() {
-    return [];
+    const columns: number[][] = [];
+    // Iterate over each column index
+    for (let i = 0; i < this.matrix[0].length; i++) {
+      // Empty array to store current column
+      const column: number[] = [];
+      // Iterate over each row and extract the element at the current column index
+      for (const row of this.matrix) {
+        column.push(row[i]);
+      }
+      columns.push(column);
+    }
+
+    return columns;
   }
 }
 

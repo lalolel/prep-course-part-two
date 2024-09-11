@@ -28,11 +28,25 @@
  */
 
 class PhoneNumber {
-  constructor(input: string) {}
+  phoneNumber = ''
+  constructor(input: string) {
+    this.phoneNumber = input.replace(/[().\-\s+]/g, '');
+    if (this.phoneNumber.startsWith('1') && this.phoneNumber.length === 11) {
+      this.phoneNumber = this.phoneNumber.slice(1);
+    }
+  }
 
   number() {
-    return "";
+    if (/\D/.test(this.phoneNumber)) {
+      return null;
+    }
+    if (this.phoneNumber.length === 9 || this.phoneNumber.length === 12) {
+      return null;
+    }
+    if (this.phoneNumber.length === 11 && this.phoneNumber[0] === '2') {
+      return null;
+    }
+    return this.phoneNumber;
   }
 }
-
 export { PhoneNumber };

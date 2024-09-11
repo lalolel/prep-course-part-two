@@ -11,8 +11,12 @@
  * Examples:
  * palindrome("abba") === true
  * palindrome("abcdefg") === false
+ * 
+ * maybe split, reverse, compare?
  */
 
-function palindrome(str: string) {}
+function palindrome(str: string) {
+    return str === str.split('').reverse().join('');
+    }
 
 export { palindrome };

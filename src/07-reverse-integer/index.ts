@@ -12,6 +12,15 @@
  * reverseInt(-90) === -9
  */
 
-function reverse(int: number) {}
+function reverse(int: number): number {
+  // Convert int to string
+  const numStr = int.toString();
+  // Now we can reverse the string
+  const reversedStr = numStr.split("").reverse().join("");
+  // And turn reversed string back to Int
+  const reversedInt = parseInt(reversedStr);
+  // This will return negative Int if Int is smaller than 0
+  return int < 0 ? -reversedInt : reversedInt;
+}
 
 export { reverse };
