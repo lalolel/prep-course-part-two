@@ -40,10 +40,12 @@ class PhoneNumber {
     if (/\D/.test(this.phoneNumber)) {
       return null;
     }
-    if (this.phoneNumber.length === 9 || this.phoneNumber.length === 12) {
+    if (this.phoneNumber.length !== 10) {
       return null;
     }
-    if (this.phoneNumber.length === 11 && this.phoneNumber[0] === '2') {
+    const areaCode = this.phoneNumber.slice(0, 3);
+    const exchangeCode = this.phoneNumber.slice(3, 6);
+    if (areaCode.startsWith('0') || areaCode.startsWith('1') || exchangeCode.startsWith('0') || exchangeCode.startsWith('1')) {
       return null;
     }
     return this.phoneNumber;
